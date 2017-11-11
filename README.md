@@ -10,7 +10,7 @@ React component for [Prello login](https://themightyprello.igpolytech.fr).
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GitHubLogin from 'react-prello-login';
+import PrelloLogin from 'react-prello-login/dist/PrelloLogin';
 
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);

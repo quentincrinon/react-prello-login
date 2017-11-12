@@ -25,14 +25,15 @@ class PrelloLogin extends Component {
   }
 
   onBtnClick = () => {
-    const { clientId, redirectUri } = this.props
+    const { clientId, redirectUri, scope } = this.props
     const search = toQuery({
       client_id: clientId,
-      redirect_uri: redirectUri
+      redirect_uri: redirectUri,
+      scope: scope
     })
     const popup = this.popup = PopupWindow.open(
       'prello-oauth-authorize',
-      `https://themightyprello-server.igpolytech.fr/oauth/prello/login?${search}`,
+      `http://localhost:3333/oauth/prello/login?${search}`,
       { height: 1000, width: 600 }
     )
 
@@ -48,6 +49,7 @@ class PrelloLogin extends Component {
   }
 
   onSuccess = (data) => {
+    console.log(data)
     if (!data.code) {
       return this.onFailure(new Error('\'code\' not found'))
     }

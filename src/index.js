@@ -1,3 +1,3 @@
-import PrelloLogin from './PrelloLogin'
+import ThePrelloLogin from './ThePrelloLogin'
 
-export default PrelloLogin
+export default ThePrelloLogin

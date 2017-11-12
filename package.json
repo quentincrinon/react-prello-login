@@ -1,5 +1,5 @@
 {
-  "name": "react-prello-login",
+  "name": "react-theprello-login",
   "version": "1.0.0",
   "description": "A React Component for Prello Login",
   "main": "dist/Prello.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BenAfonso/prello-github-login.git"
+    "url": "https://github.com/quentincrinon/react-theprello-login.git"
   },
   "keywords": [
     "react",
     "reactjs",
     "react-component",
-    "prello-login",
-    "react-prello-login"
+    "theprello-login",
+    "react-theprello-login"
   ],
   "license": "MIT",
   "peerDependencies": {

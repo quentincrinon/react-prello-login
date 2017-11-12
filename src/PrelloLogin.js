@@ -33,7 +33,7 @@ class PrelloLogin extends Component {
     })
     const popup = this.popup = PopupWindow.open(
       'prello-oauth-authorize',
-      `http://localhost:3333/oauth/prello/login?${search}`,
+      `https://themightyprello-server.igpolytech.fr/oauth/prello/login?${search}`,
       { height: 1000, width: 600 }
     )
 

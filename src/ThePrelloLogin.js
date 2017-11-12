@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import PopupWindow from './PopupWindow'
 import { toQuery } from './utils'
 
-class PrelloLogin extends Component {
+class ThePrelloLogin extends Component {
   static propTypes = {
     buttonText: PropTypes.string,
     children: PropTypes.node,
@@ -13,31 +14,32 @@ class PrelloLogin extends Component {
     onSuccess: PropTypes.func,
     onFailure: PropTypes.func,
     redirectUri: PropTypes.string.isRequired,
-    scope: PropTypes.string
+    scope: PropTypes.string,
+    response_type: PropTypes.string,
+    state: PropTypes.string
   }
 
   static defaultProps = {
-    buttonText: 'Sign in with Prello',
+    buttonText: 'Sign in with ThePrello',
     scope: '',
     onRequest: () => {},
     onSuccess: () => {},
-    onFailure: () => {}
+    onFailure: () => {},
   }
 
   onBtnClick = () => {
-    const { clientId, redirectUri, scope } = this.props
+    const { clientId, redirectUri } = this.props
     const search = toQuery({
       client_id: clientId,
-      redirect_uri: redirectUri,
-      scope: scope
+      redirect_uri: redirectUri
     })
     const popup = this.popup = PopupWindow.open(
-      'prello-oauth-authorize',
-      `https://themightyprello-server.igpolytech.fr/oauth/prello/login?${search}`,
+      'theprello-oauth-authorize',
+      `http://localhost:3001/oauth?${search}`,
       { height: 1000, width: 600 }
     )
 
-    this.onRequest()
+    this.onRequest();
     popup.then(
       data => this.onSuccess(data),
       error => this.onFailure(error)
@@ -49,7 +51,6 @@ class PrelloLogin extends Component {
   }
 
   onSuccess = (data) => {
-    console.log(data)
     if (!data.code) {
       return this.onFailure(new Error('\'code\' not found'))
     }
@@ -61,7 +62,7 @@ class PrelloLogin extends Component {
     this.props.onFailure(error)
   }
 
-  render () {
+  render() {
     const { className, buttonText, children } = this.props
     const attrs = { onClick: this.onBtnClick }
 
@@ -73,4 +74,4 @@ class PrelloLogin extends Component {
   }
 }
 
-export default PrelloLogin
+export default ThePrelloLogin

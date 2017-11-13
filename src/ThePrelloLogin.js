@@ -35,8 +35,8 @@ class ThePrelloLogin extends Component {
     })
     const popup = this.popup = PopupWindow.open(
       'theprello-oauth-authorize',
-      `http://localhost:3001/oauth?${search}`,
-      { height: 1000, width: 600 }
+      `https://theprello-api.igpolytech.fr/oauth?${search}`,
+      { height: 600, width: 600 }
     )
 
     this.onRequest();

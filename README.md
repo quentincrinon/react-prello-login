@@ -1,22 +1,22 @@
 # React Prello Login
 
-React component for [Prello login](https://themightyprello.igpolytech.fr).
+React component for [Prello login](https://theprello-ci.igpolytech.fr).
 
 ## Usage
 
-`npm install --save https://github.com/BenAfonso/react-prello-login`
+`npm install --save https://github.com/quentincrinon/react-theprello-login`
 
 
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PrelloLogin from 'react-prello-login/dist/PrelloLogin';
+import ThePrelloLogin from 'react-theprello-login/dist/PrelloLogin';
 
 const onSuccess = response => console.log(response);
 const onFailure = response => console.error(response);
 
 ReactDOM.render(
-  <PrelloLogin clientId="ac56fad434a3a3c1561e"
+  <ThePrelloLogin clientId="ac56fad434a3a3c1561e"
     onSuccess={onSuccess}
     onFailure={onFailure}/>,
   document.getElementById('example')
